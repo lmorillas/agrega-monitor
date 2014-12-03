@@ -30,8 +30,9 @@ for n in nodos_agrega:
             #print >> sys.stderr, '.',
             nodo['estado'] = 'on'
             estado_nodos.append(nodo)
-
-
+        else:
+            nodo['estado'] = 'off'
+            estado_nodos.append(nodo)
     except:
         #print n, '--> DOWN :-('
         nodo['estado'] = 'off'

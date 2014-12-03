@@ -46,7 +46,7 @@
    "label": "Baleares"
   }, 
   {
-   "estado": "on", 
+   "estado": "off", 
    "type": "estado", 
    "label": "Galicia"
   }, 
@@ -76,7 +76,7 @@
    "label": "Extremadura"
   }, 
   {
-   "estado": "off", 
+   "estado": "on", 
    "type": "estado", 
    "label": "Navarra"
   }
