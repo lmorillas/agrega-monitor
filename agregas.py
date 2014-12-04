@@ -53,6 +53,16 @@ json.dump({'items':estado_nodos}, open('estado_nodos.js', 'w'), indent=True)
 import csv
 from datetime import datetime
 
+ahora = datetime.now()
+
+def pon_hora(ahorat):
+    texto_hora = '<h2 id="fecha">Estado nodos Agrega :: '
+    ahora = ahorat.strftime("%d-%b-%y %H:%M")
+    open('index.html', 'w').write(open('agregas.html').read().replace(texto_hora, texto_hora + ahora))
+
+pon_hora(ahora)
+
 with open('agrega_aragon.csv', 'a') as fp:
 	fw = csv.writer(fp, delimiter=',')
-	fw.writerow([datetime.now().isoformat(), estado_aragon, 'ar' ])
+	fw.writerow([ahora.isoformat(), estado_aragon, 'ar' ])
+
