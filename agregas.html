@@ -8,9 +8,8 @@
     <!-- datos -->
     <link href="nodos.js" type="application/json" rel="exhibit-data" />
     <link href="estado_nodos.js" type="application/json" rel="exhibit-data" />
-    
-    <link href="agrega_aragon.csv" type="text/csv" rel="exhibit-data" 
-    data-ex-properties="label,estado,type" data-ex-has-column-titles="true"/>
+
+    <link href="agrega_aragon.csv" type="text/csv" rel="exhibit-data" data-ex-properties="label,estado,type" data-ex-has-column-titles="true" />
 
     <!-- Replace the URL here with your Exhibit 3.0 script location -->
     <!-- Latest compiled and minified CSS -->
@@ -19,7 +18,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
 
-        <!-- Latest compiled and minified JavaScript -->
+    <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
     <link rel="exhibit-extension" href="http://api.simile-widgets.org/exhibit/3.1.1/extensions/map/map-extension.js" />
@@ -31,7 +30,8 @@
     h2 {
         text-align: center;
     }
-    .timeline-event-label, .exhibit-color-legend {
+    .timeline-event-label,
+    .exhibit-color-legend {
         display: None;
     }
     </style>
@@ -45,58 +45,33 @@
 
 
     <div data-ex-role="coder" data-ex-coder-class="Color" id="color_estado" style="display: none">
-                        <span data-ex-color="red">off</span>
-                        <span data-ex-color="green">on</span>
-                    </div>
+        <span data-ex-color="red">off</span>
+        <span data-ex-color="green">on</span>
+    </div>
+
+    <div data-ex-role="coder" data-ex-coder-class="Icon" id="icono_estado" style="display: none">
+        <span data-ex-icon="http://api.simile-widgets.org/timeline/2.3.1/images/dull-green-circle.png">on</span>
+        <span data-ex-icon="http://api.simile-widgets.org/timeline/2.3.1/images/dull-red-circle.png">off</span>
+    </div>
     
-     <div data-ex-role="coder" data-ex-coder-class="Icon" id="icono_estado" style="display: none">
-            <span data-ex-icon="http://api.simile-widgets.org/timeline/2.3.1/images/dull-green-circle.png">on</span>
-            <span data-ex-icon="http://api.simile-widgets.org/timeline/2.3.1/images/dull-red-circle.png">off</span>
-     </div>
 
     <div class="container-fluid">
-
+        <h2 id="fecha">Estado nodos Agrega - 23 marzo a las 5</h2>
         <div class="col-xs-8 center-block" style="float:none;">
 
         </div>
 
         <div class="row">
-            <div class="col-md-6">
-            <h2 style="text-align: center"> Nodos Agrega </h2>
-
-                    <div data-ex-role="view" data-ex-view-class="Map" data-ex-collection-i-d="col_nodos" data-ex-latlng=".latlon" data-ex-zoom="5"
-                    data-ex-center="36, -3.7037902" data-ex-map-height="500"
-                    data-ex-label="¿Dónde hay nodos?"
-                    data-ex-shape-alpha="0.6"
-                    data-ex-color-key=".estado"
-                    data-ex-color-coder="color_estado"
-                    data-ex-color-legend-label="Estado de los nodos"
-                    data-ex-show-header="false">
-
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div data-ex-role="exhibit-viewPanel">
+                    <div data-ex-role="view" data-ex-view-class="Map" data-ex-collection-i-d="col_nodos" data-ex-latlng=".latlon" data-ex-zoom="5" data-ex-label="Nodos de Agrega" data-ex-center="36, -3.7037902" data-ex-map-height="500" data-ex-label="¿Dónde hay nodos?" data-ex-shape-alpha="0.6" data-ex-color-key=".estado" data-ex-color-coder="color_estado" data-ex-color-legend-label="Estado de los nodos" data-ex-show-header="false">
 
                     </div>
 
-            </div>
-
-            <div class="col-md-6">
-        <h2 style="text-align: center"> Nodo Agrega - Aragón </h2>
-
- <div data-ex-role="view" data-ex-view-class="Timeline" data-ex-start=".label"  data-ex-timeline-height="120" 
- data-ex-show-summary="false" data-ex-show-legend="false"   data-ex-icon-key=".estado" 
- data-ex-marker=".estado"
- data-ex-show-header="false"
- data-ex-collection-i-d="col_ar"
- data-ex-top-band-unit="week"
- data-ex-label=".estado"
- data-ex-icon-coder="icono_estado"
- >
-
-
-
-
-        </div>
-
-
+                    <div data-ex-role="view" data-ex-view-class="Timeline" data-ex-start=".label" data-ex-timeline-height="120" data-ex-show-summary="false" data-ex-show-legend="false" data-ex-icon-key=".estado" data-ex-label="Estado nodo de Aragón" data-ex-marker=".estado" data-ex-show-header="false" data-ex-collection-i-d="col_ar" data-ex-top-band-unit="week" data-ex-label=".estado" data-ex-icon-coder="icono_estado">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
