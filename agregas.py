@@ -1,6 +1,7 @@
 import requests
 import json
 import sys
+from random import choice
 
 def extrae_nodos():
     from amara.bindery import html
@@ -13,18 +14,38 @@ def extrae_nodos():
     return nodos_agrega
 
 
-nodos_agrega = {u'Canarias': u'http://www3.gobiernodecanarias.org/medusa/agrega', u'Castilla y Le\xf3n': u'http://agrega.crfptic.es/', u'Andaluc\xeda': u'http://agrega.juntadeandalucia.es', u'Arag\xf3n': u'http://agrega.catedu.es/', u'Madrid': u'http://agrega.educa.madrid.org', u'Murcia': u'http://agrega.carm.es', u'Pa\xeds Vasco': u'http://agrega.hezkuntza.net', u'Baleares': u'http://agrega.caib.es', u'La Rioja': u'http://agrega.educarioja.org', u'Castilla-La Mancha': u'http://agrega.educa.jccm.es', u'Galicia': u'http://www.edu.xunta.es/agrega', u'Cantabria': u'http://agrega.educantabria.es', u'Valencia': u'http://recursos.edu.gva.es', u'INTEF': u'http://agrega.educacion.es', u'Extremadura': u'http://agrega.educarex.es', u'Navarra': u'http://agrega.educacion.navarra.es'}
+nodos_agrega = {u'Canarias': u'http://www3.gobiernodecanarias.org/medusa/agrega',
+    u'Castilla y Le\xf3n': u'http://agrega.crfptic.es/',
+    u'Andaluc\xeda': u'http://agrega.juntadeandalucia.es',
+    u'Arag\xf3n': u'http://agrega.catedu.es/', u'Madrid': u'http://agrega.educa.madrid.org' ,
+    u'Murcia': u'http://agrega.carm.es', u'Pa\xeds Vasco': u'http://agrega.hezkuntza.net',
+    u'Baleares': u'http://agrega.caib.es', u'La Rioja': u'http://agrega.educarioja.org',
+    u'Castilla-La Mancha': u'http://agrega.educa.jccm.es',
+    u'Galicia': u'http://www.edu.xunta.es/agrega',
+    u'Cantabria': u'http://agrega.educantabria.es', u'Valencia': u'http://recursos.edu.gva.es',
+    u'INTEF': u'http://agrega.educacion.es', u'Extremadura': u'http://agrega.educarex.es',
+    u'Navarra': u'http://agrega.educacion.navarra.es'}
 
 
 
 estado_nodos = []
 estado_aragon = ''
 
+USER_AGENT_LIST = [
+    'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.36 Safari/535.7',
+    'Mozilla/5.0 (Windows NT 6.2; Win64; x64; rv:16.0)  Gecko/16.0 Firefox/16.0',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/534.55.3 (KHTML, like Gecko) Version/5.1.3 Safari/534.53.10'
+    ]
+
+
+headers = {
+    "User-Agent" : choice(USER_AGENT_LIST) }
+
 for n in nodos_agrega:
     nodo ={'label':n,
     'type': 'estado'}
     try:
-        r = requests.get(nodos_agrega.get(n), timeout=1)
+        r = requests.get(nodos_agrega.get(n), headers=headers, timeout=5)
         if r.status_code == 200:
             #print n, '--> OK'
             #print >> sys.stderr, '.',
