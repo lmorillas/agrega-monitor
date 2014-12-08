@@ -56,7 +56,7 @@
         <span data-ex-icon="http://api.simile-widgets.org/timeline/2.3.1/images/dull-green-circle.png">on</span>
         <span data-ex-icon="http://api.simile-widgets.org/timeline/2.3.1/images/dull-red-circle.png">off</span>
     </div>
-    
+
 
     <div class="container-fluid">
         <h2 id="fecha">Estado nodos Agrega :: </h2>
@@ -69,6 +69,34 @@
             <div class="col-md-10">
                 <div data-ex-role="exhibit-viewPanel">
                     <div data-ex-role="view" data-ex-view-class="Map" data-ex-collection-i-d="col_nodos" data-ex-latlng=".latlon" data-ex-zoom="5" data-ex-label="Nodos de Agrega" data-ex-center="36, -3.7037902" data-ex-map-height="500" data-ex-label="¿Dónde hay nodos?" data-ex-shape-alpha="0.6" data-ex-color-key=".estado" data-ex-color-coder="color_estado" data-ex-color-legend-label="Estado de los nodos" data-ex-show-header="false">
+
+
+                        <div data-ex-role="lens" class="a-lens" style="display: none;">
+                            <table class="details table table-striped">
+                                <tr>
+                                    <td class="property">Nodo:</td>
+                                    <td>
+                                        <span data-ex-content=".label"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="property">Url:</td>
+                                    <td>
+                                        <a data-ex-href-content=".url">
+                                            <span data-ex-content=".url"></span>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="property">Estado:</td>
+                                    <td>
+                                        <span data-ex-content=".estado"></span>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
 
                     </div>
 
