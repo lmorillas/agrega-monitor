@@ -1,9 +1,13 @@
+# coding: utf-8
+
 import requests
 import json
 import sys
 from random import choice
+import os
 
-RUTA=''
+# por defecto los archivos estarán en el mismo directorio
+RUTA = os.path.dirname(os.path.abspath(__file__))
 
 def extrae_nodos():
     from amara.bindery import html
