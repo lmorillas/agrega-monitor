@@ -7,7 +7,7 @@ from random import choice
 import os
 
 # por defecto los archivos estarán en el mismo directorio
-RUTA = os.path.dirname(os.path.abspath(__file__))
+RUTA = os.path.dirname(os.path.abspath(__file__))+'/'
 
 def extrae_nodos():
     from amara.bindery import html
