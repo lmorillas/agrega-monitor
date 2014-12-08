@@ -3,6 +3,8 @@ import json
 import sys
 from random import choice
 
+RUTA=''
+
 def extrae_nodos():
     from amara.bindery import html
     doc = html.parse('http://www.agrega2.es/web/')
@@ -69,7 +71,7 @@ print u"{} nodos OK: {}".format(len(up), u', '.join(up))
 print u"{} nodos DOWN: {}".format(len(down), u', '.join(down))
 '''
 
-json.dump({'items':estado_nodos}, open('estado_nodos.js', 'w'), indent=True)
+json.dump({'items':estado_nodos}, open(RUTA + 'estado_nodos.js', 'w'), indent=True)
 
 import csv
 from datetime import datetime
@@ -79,11 +81,10 @@ ahora = datetime.now()
 def pon_hora(ahorat):
     texto_hora = '<h2 id="fecha">Estado nodos Agrega :: '
     ahora = ahorat.strftime("%d-%b-%y %H:%M")
-    open('index.html', 'w').write(open('agregas.html').read().replace(texto_hora, texto_hora + ahora))
+    open(RUTA + 'index.html', 'w').write(open(RUTA + 'agregas.html').read().replace(texto_hora, texto_hora + ahora))
 
 pon_hora(ahora)
 
-with open('agrega_aragon.csv', 'a') as fp:
+with open(RUTA + 'agrega_aragon.csv', 'a') as fp:
 	fw = csv.writer(fp, delimiter=',')
 	fw.writerow([ahora.isoformat(), estado_aragon, 'ar' ])
-
